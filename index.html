@@ -1,0 +1,177 @@
+<!doctype html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>跟小熊一起學 Python 🐻🐍</title>
+  <style>
+    :root{
+      --bg:#FFFBF0; --card:#FFFFFF; --accent:#6C63FF; --accent-2:#FF7AA2; --muted:#6b7280;
+      --radius:16px; --shadow:0 8px 24px rgba(16,24,40,0.06);
+      font-family: 'Noto Sans TC', system-ui, -apple-system, 'Segoe UI', Roboto, 'PingFang TC', sans-serif;
+    }
+    body{background:linear-gradient(180deg,#FFFDF5 0%, #F7F9FF 100%); margin:0; padding:28px; color:#0f172a}
+    .wrap{max-width:960px;margin:0 auto}
+    header{display:flex;align-items:center;gap:16px}
+    .logo{width:84px;height:84px;border-radius:20px;background:linear-gradient(135deg,var(--accent),var(--accent-2));display:flex;align-items:center;justify-content:center;color:white;font-weight:700;font-size:36px;box-shadow:var(--shadow)}
+    h1{margin:0;font-size:28px}
+    p.lead{margin:6px 0 20px;color:var(--muted)}
+
+    .grid{display:grid;grid-template-columns:1fr 340px;gap:20px}
+    .card{background:var(--card);border-radius:var(--radius);box-shadow:var(--shadow);padding:18px}
+
+    .section-title{display:flex;align-items:center;gap:10px;margin-bottom:12px}
+    .section-title h2{font-size:18px;margin:0}
+
+    .big-code{background:#0b1220;color:#e6eef8;padding:12px;border-radius:12px;font-family:monospace;font-size:14px}
+
+    .btn{display:inline-block;padding:10px 14px;border-radius:12px;background:var(--accent);color:white;text-decoration:none;cursor:pointer}
+    .btn.secondary{background:#E6E9FF;color:var(--accent)}
+
+    .console{background:#0b1220;color:#dbeafe;padding:14px;border-radius:12px;font-family:monospace;height:120px;overflow:auto}
+    .example{margin-bottom:12px}
+    .emoji{font-size:22px}
+
+    footer{margin-top:18px;color:var(--muted);font-size:13px}
+
+    @media (max-width:920px){.grid{grid-template-columns:1fr;}.logo{width:64px;height:64px;font-size:28px}}
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <header>
+      <div class="logo">Py</div>
+      <div>
+        <h1>跟小熊一起學 Python 🐻🐍</h1>
+        <p class="lead">一個活潑、簡單、適合小朋友的單頁介紹──用玩遊戲的方式認識程式語言！</p>
+      </div>
+    </header>
+
+    <main class="grid" style="margin-top:18px;">
+      <section>
+        <div class="card">
+          <div class="section-title"><span class="emoji">✨</span><h2>什麼是 Python？</h2></div>
+          <p>Python 是一種程式語言，就像你用中文或英文和別人說話一樣，程式語言可以讓你跟電腦說話，告訴它要做什麼。它的語法簡單、好讀，很多初學者都喜歡用它。</p>
+
+          <hr style="margin:12px 0">
+
+          <div class="section-title"><span class="emoji">🔤</span><h2>簡單的指令：print()</h2></div>
+          <p>用 <code>print()</code> 可以讓電腦在螢幕上顯示東西。</p>
+          <div class="big-code">print("你好，Python！")</div>
+          <p style="margin-top:8px;color:var(--muted)">點右邊範例按鈕可以看到模擬結果。</p>
+
+          <hr style="margin:12px 0">
+
+          <div class="section-title"><span class="emoji">🔁</span><h2>循環（做很多次的事情）</h2></div>
+          <p>用 for 迴圈可以讓電腦重複做事情。</p>
+          <div class="big-code">for i in range(3):
+  print("嗨！", i)
+</div>
+
+          <hr style="margin:12px 0">
+
+          <div class="section-title"><span class="emoji">🎯</span><h2>小小挑戰</h2></div>
+          <p>按下面的按鈕試試看：選一個範例，按「執行」，看會發生什麼！</p>
+
+          <div style="display:flex;gap:8px;flex-wrap:wrap;margin-top:8px">
+            <button class="btn" onclick="runExample('hello')">執行：說哈囉</button>
+            <button class="btn secondary" onclick="runExample('count')">執行：數數看</button>
+            <button class="btn" onclick="runExample('math')">執行：小小計算</button>
+            <button class="btn secondary" onclick="runExample('draw')">執行：畫畫 (模擬)</button>
+          </div>
+
+          <div style="margin-top:12px">
+            <div class="section-title"><h2>模擬 Python 主控台</h2></div>
+            <div id="console" class="console">輸出會顯示在這裡……</div>
+          </div>
+        </div>
+
+        <div style="height:16px"></div>
+
+        <div class="card">
+          <div class="section-title"><span class="emoji">🧩</span><h2>常見小詞彙</h2></div>
+          <ul>
+            <li><strong>變數（variable）</strong>：像是一個盒子，放東西（數字、文字）。</li>
+            <li><strong>函式（function）</strong>：做一件事情的指令集合，像是玩具的組裝說明書。</li>
+            <li><strong>迴圈（loop）</strong>：重複做同一件事。</li>
+            <li><strong>條件（if）</strong>：遇到不同情況做不同事，例如「如果下雨就帶傘」。</li>
+          </ul>
+
+          <hr style="margin:10px 0">
+          <div class="section-title"><span class="emoji">📚</span><h2>學習小秘訣</h2></div>
+          <ol>
+            <li>多練習：每次只學一件小事。</li>
+            <li>像說故事一樣寫程式，想像你在和電腦對話。</li>
+            <li>錯誤是好事，會讓你學到更多——別怕試錯。</li>
+          </ol>
+        </div>
+      </section>
+
+      <aside>
+        <div class="card">
+          <div class="section-title"><span class="emoji">🎮</span><h2>互動小工具</h2></div>
+          <p style="color:var(--muted)">按下範例按鈕後，你可以看到模擬輸出。這裡是一些簡短的範例解說：</p>
+          <div style="margin-top:8px">
+            <strong>說哈囉</strong>
+            <div style="font-size:13px;color:var(--muted)">示範: <code>print("嗨，小朋友！")</code></div>
+          </div>
+          <div style="margin-top:8px">
+            <strong>數數看</strong>
+            <div style="font-size:13px;color:var(--muted)">示範: <code>for i in range(3): print(i)</code></div>
+          </div>
+
+          <hr style="margin:12px 0">
+
+          <div class="section-title"><span class="emoji">📺</span><h2>想要做更多？</h2></div>
+          <p>當你準備好可以試試：</p>
+          <ul>
+            <li>用 Python 畫簡單的圖（像用 <code>turtle</code>）</li>
+            <li>做小遊戲（像數字猜謎）</li>
+            <li>學習如何處理文字、圖片或聲音</li>
+          </ul>
+        </div>
+
+        <div style="height:12px"></div>
+
+        <div class="card">
+          <div class="section-title"><span class="emoji">❓</span><h2>小測驗（3 題）</h2></div>
+          <ol>
+            <li>哪一個可以在螢幕上顯示文字？<br><small style="color:var(--muted)">A: print()</small></li>
+            <li>重複做事用什麼？<br><small style="color:var(--muted)">A: 迴圈（loop）</small></li>
+            <li>放資料的箱子叫什麼？<br><small style="color:var(--muted)">A: 變數</small></li>
+          </ol>
+        </div>
+      </aside>
+    </main>
+  </div>
+
+  <script>
+    const consoleEl = document.getElementById('console');
+    function appendLine(text){
+      consoleEl.innerText += '\n' + text;
+      consoleEl.scrollTop = consoleEl.scrollHeight;
+    }
+    function runExample(name){
+      consoleEl.innerText = '';
+      if(name==='hello'){
+        appendLine('>>> print("嗨，小朋友！")');
+        setTimeout(()=>appendLine('嗨，小朋友！'),300);
+      } else if(name==='count'){
+        appendLine('>>> for i in range(3):\n...   print(i)');
+        setTimeout(()=>{appendLine('0');},300);
+        setTimeout(()=>{appendLine('1');},700);
+        setTimeout(()=>{appendLine('2');},1100);
+      } else if(name==='math'){
+        appendLine('>>> 3 + 5');
+        setTimeout(()=>appendLine('8'),400);
+        setTimeout(()=>appendLine('>>> 10 // 3 (整除)'),800);
+        setTimeout(()=>appendLine('3'),1100);
+      } else if(name==='draw'){
+        appendLine('>>> 使用 turtle 畫一個笑臉（這裡為模擬）');
+        setTimeout(()=>appendLine('開始畫圖…'),400);
+        setTimeout(()=>appendLine('完成！你畫了一個笑臉 😊'),1000);
+      }
+    }
+  </script>
+</body>
+</html>
